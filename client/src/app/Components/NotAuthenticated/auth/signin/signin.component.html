@@ -1,0 +1,20 @@
+
+
+<div class="sign__form">
+  <div class="form__container">
+    <h2>Sign In</h2>
+    <input type="text" placeholder="Enter your login" [(ngModel)]="login">
+    <input type="password" placeholder="Enter your password" [(ngModel)]="password">
+    <button
+      [disabled]="!login || !password"
+      class="btn btn-primary"
+      (click)="signIn()"
+    >SignIn
+    </button>
+    <button
+      [routerLink]="['/auth/signup']"
+    >SignUp</button>
+  </div>
+</div>
+
+

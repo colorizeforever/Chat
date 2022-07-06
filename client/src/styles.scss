@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@mixin scrollbarThumb {
+  background-color: #ffffff;
+  border: 1px solid rgba(70, 70, 70, 0.87);
+  border-radius: 8px;
+}
+
+@mixin scrollbarTrack {
+  background-color: #dedede;
+  border-radius: 8px;
+}
+
+$scrollWidth: 10px;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,32 @@
+<div class="outerContainer">
+  <span
+    routerLink="/rooms"
+  >
+    <i
+      class="fa-solid fa-right-from-bracket"
+    >
+    </i>
+  </span>
+  <div class="messages">
+    <ng-container *ngFor="let msg of (messageList$ | async)">
+      <div class="message" [ngClass]="msg.user === username ? 'mine' : 'yours'">
+        <span class="message__username">{{msg.user | titlecase}}</span>
+        <span>{{msg.text}}</span>
+        <img [src]="(avatarLink + msg.imageId) | safeUrl">
+      </div>
+    </ng-container>
+  </div>
+  <div class="form__container">
+    <input
+      type="text"
+      [(ngModel)]="message"
+    >
+    <button
+      [disabled]="!message"
+      (click)="sendMessage()">
+      <i
+        class="fa-solid fa-paper-plane"
+      ></i>
+    </button>
+  </div>
+</div>

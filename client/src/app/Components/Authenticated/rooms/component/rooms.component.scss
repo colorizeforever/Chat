@@ -1,0 +1,32 @@
+@import "src/styles";
+@import "src/scss/colors";
+
+.room__name {
+  width: 90%;
+}
+
+.room {
+  background-color: $blue;
+  border-radius: 14px 14px 14px 14px;
+  width: 300px;
+  color: $white;
+  height: 68px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.message {
+  height: 54%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid $black;
+  border-radius: 5px;
+  span {
+    width: 90%;
+  }
+}
+
