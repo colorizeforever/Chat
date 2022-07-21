@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { MulterModuleOptions } from "@nestjs/platform-express";
 import { GridFsStorage } from "multer-gridfs-storage";
-import mongoConfig from "../../../config/config.db";
+import { mongoConfig } from "../../../config/configuration";
 
 @Injectable()
 export class GridFsMulterConfigService {

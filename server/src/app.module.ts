@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import mongoConfig from './config/config.db'
+import {mongoConfig} from './config/configuration'
 import { MongooseModule } from "@nestjs/mongoose";
 import { ChatModule } from "./modules/chat/chat.module";
 import { ConfigModule } from "@nestjs/config";

@@ -8,9 +8,7 @@ import { JwtModule } from "@nestjs/jwt";
 import { RoomsService } from "./services/rooms.service";
 import { Rooms, RoomsSchema } from "../../schemas/rooms.schema";
 import { ChatRoomsGateway } from "./gateway/chatRooms.gateway";
-import * as dotenv from "dotenv";
-
-dotenv.config()
+import { jwtConfig } from "../../config/configuration";
 
 @Module({
   providers: [
@@ -20,12 +18,7 @@ dotenv.config()
     RoomsService
   ],
   imports: [
-    JwtModule.register({
-      secret: process.env.PRIVATE_KEY,
-      signOptions: {
-        expiresIn: "24h"
-      }
-    }),
+    JwtModule.register(jwtConfig),
     MongooseModule.forFeature([
       { name: UsersInRoom.name, schema: UsersInRoomSchema },
       { name: Messages.name, schema: MessagesSchema },

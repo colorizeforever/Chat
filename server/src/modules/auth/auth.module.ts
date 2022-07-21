@@ -4,9 +4,7 @@ import { AuthService } from './auth.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Authorization, AuthSchema } from '../../schemas/auth.schema';
 import { JwtModule } from '@nestjs/jwt';
-import * as dotenv from "dotenv";
-
-dotenv.config()
+import { jwtConfig } from "../../config/configuration";
 
 @Module({
   controllers: [AuthController],
@@ -17,9 +15,7 @@ dotenv.config()
     MongooseModule.forFeature([
       { name: Authorization.name, schema: AuthSchema },
     ]),
-    JwtModule.register({
-      secret: process.env.PRIVATE_KEY,
-    })
+    JwtModule.register(jwtConfig)
   ],
   exports: [
     AuthService

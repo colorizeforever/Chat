@@ -6,7 +6,7 @@ import {
 import { Server, Socket } from 'socket.io';
 import { ChatService } from '../services/chat.service';
 import { config, socketPort } from '../websocket.options';
-import {JwtService} from "@nestjs/jwt";
+import { JwtService } from "@nestjs/jwt";
 import {UnauthorizedException} from "@nestjs/common";
 import {SocketActions} from "../../../constants/socket.actions";
 import { MessageType } from "../../../typing/message.type";
@@ -16,7 +16,7 @@ export class ChatGateway {
   constructor(
       private chatService: ChatService,
       private jwtService: JwtService
-      ) {}
+      ) { }
 
   @WebSocketServer() server: Server;
 
