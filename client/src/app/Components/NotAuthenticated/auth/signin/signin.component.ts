@@ -2,7 +2,8 @@ import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/co
 import {AuthService} from "../services/auth.service";
 import {setToken} from "../../../../utils/tokenHelper";
 import {Router} from "@angular/router";
-import {Subject, takeUntil} from "rxjs";
+import {catchError, of, Subject, takeUntil} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-auth',
@@ -19,17 +20,27 @@ export class SignInComponent implements OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private _snackBar: MatSnackBar
   ) { }
 
   signIn(): void {
-      this.authService.login(this.login, this.password)
-        .pipe(
-          takeUntil(this.unsubscribe$)
-        )
-        .subscribe(token => {
-          setToken(JSON.stringify(token));
-          this.router.navigate(['/rooms']);
+    this.authService.login(this.login, this.password)
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        catchError(err => {
+          return of(err)
         })
+      )
+      .subscribe(token => {
+        token.error
+          ? this._snackBar.open(token.error.message, 'Ok')
+          : this.redirect(token)
+      })
+  }
+
+  private redirect(token: string): void {
+    setToken(JSON.stringify(token));
+    this.router.navigate(['/rooms']);
   }
 
   ngOnDestroy(): void {
