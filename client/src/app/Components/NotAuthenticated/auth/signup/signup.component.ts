@@ -1,10 +1,11 @@
 import {ChangeDetectionStrategy, Component} from "@angular/core";
-import {Subject, takeUntil} from "rxjs";
+import {catchError, of, Subject, takeUntil} from "rxjs";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
-import { getToken, setAvatarId, setToken } from "../../../../utils/tokenHelper";
+import {setAvatarId, setToken} from "../../../../utils/tokenHelper";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { FileService } from "../../../../services/file.service";
+import {FileService} from "../../../../services/file.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-signup',
@@ -27,24 +28,32 @@ export class SignUpComponent {
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private fileService: FileService
-  ) { }
+    private fileService: FileService,
+    private _snackBar: MatSnackBar
+  ) {
+  }
 
   signUp(): void {
     const {login, password} = this.authFormGroup.value
     if (login && password) {
       this.authService.registration(login, password)
         .pipe(
-          takeUntil(this.unsubscribe$)
+          takeUntil(this.unsubscribe$),
+          catchError(err => {
+            return of(err)
+          })
         )
         .subscribe(token => {
-          setToken(JSON.stringify(token));
+          token.error
+            ? this._snackBar.open(token.error.message, 'Ok')
+            : setToken(JSON.stringify(token));
         })
     }
   }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0]
+  onFileSelected(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.selectedFile = (target.files as FileList)[0];
   }
 
   onUpload() {
@@ -54,7 +63,7 @@ export class SignUpComponent {
       .pipe(
         takeUntil(this.unsubscribe$)
       )
-      .subscribe((response ) => {
+      .subscribe((response) => {
           setAvatarId(response.id)
           this.router.navigate(['/rooms'])
         }

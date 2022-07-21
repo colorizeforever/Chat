@@ -7,7 +7,7 @@ import {Model} from "mongoose";
 export class RoomsService {
     constructor(
         @InjectModel(Rooms.name) private roomsModel: Model<RoomDocument>,
-        )  { }
+        ) { }
 
    async getAllRooms(): Promise<Rooms[]> {
        return this.roomsModel.find();

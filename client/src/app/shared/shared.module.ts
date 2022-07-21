@@ -5,6 +5,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    MatSnackBarModule,
   ],
   exports: [
     SafeUrlPipe,
@@ -24,6 +26,7 @@ import {MatInputModule} from "@angular/material/input";
     MatButtonModule,
     MatInputModule,
     MatButtonModule,
+    MatSnackBarModule,
   ]
 })
 export class SharedModule { }
