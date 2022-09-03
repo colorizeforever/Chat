@@ -4,4 +4,4 @@ export const roomInitialVal: RoomModelI[] = [{
   room: '',
   lastMessage: '',
   user: ''
-}]
+}];

@@ -8,9 +8,9 @@ import {RoomDocument, Rooms} from "../../../schemas/rooms.schema";
 @Injectable()
 export class ChatService {
   constructor(
-    @InjectModel(UsersInRoom.name) private usersModel: Model<UserDocument>,
-    @InjectModel(Messages.name) private messagesModel: Model<MessagesDocument>,
-    @InjectModel(Rooms.name) private roomsModel: Model<RoomDocument>,
+    @InjectModel(UsersInRoom.name) private readonly usersModel: Model<UserDocument>,
+    @InjectModel(Messages.name) private readonly messagesModel: Model<MessagesDocument>,
+    @InjectModel(Rooms.name) private readonly roomsModel: Model<RoomDocument>,
   ) {}
 
   async getAllMessages(room: string): Promise<Messages[]> {

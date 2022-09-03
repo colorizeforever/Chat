@@ -7,7 +7,7 @@ import { FileInfoVm } from "../../../schemas/FileInfoVm";
 
 @Injectable()
 export class FileService {
-  private fileModel: MongoGridFS;
+  private readonly fileModel: MongoGridFS;
 
   constructor(
     @InjectConnection() private readonly connection: Connection,

@@ -14,8 +14,8 @@ import { MessageType } from "../../../typing/message.type";
 @WebSocketGateway(socketPort, config)
 export class ChatGateway {
   constructor(
-      private chatService: ChatService,
-      private jwtService: JwtService
+      private readonly chatService: ChatService,
+      private readonly jwtService: JwtService
       ) { }
 
   @WebSocketServer() server: Server;

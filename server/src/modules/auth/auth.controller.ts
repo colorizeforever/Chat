@@ -13,19 +13,19 @@ import { ExceptionsFilter } from '../../exceptions/FilterException';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
   @Post('registration')
   @UseFilters(ExceptionsFilter)
   registration(@Body() authDto: CreateUserDto): Promise<TokenType> {
     return this.authService.registration(authDto);
-  }
+  };
 
   @Post('login')
   @UseFilters(ExceptionsFilter)
   login(@Body() authDto: CreateUserDto): Promise<TokenType> {
     return this.authService.login(authDto);
-  }
+  };
 
 
 }

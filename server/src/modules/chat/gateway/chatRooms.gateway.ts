@@ -11,9 +11,9 @@ import {ErrorThrower} from "../../../constants/errors";
 @WebSocketGateway(socketPort, config)
 export class ChatRoomsGateway {
   constructor(
-      private jwtService: JwtService,
-      private roomService: RoomsService
-      ) {}
+      private readonly jwtService: JwtService,
+      private readonly roomService: RoomsService
+      ) { }
 
   @WebSocketServer() server: Server;
 

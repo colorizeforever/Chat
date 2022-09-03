@@ -16,15 +16,14 @@ import {getToken} from "../utils/tokenHelper";
 })
 export class ChatGuard implements CanLoad {
   constructor(
-    private router: Router
-  ) {
-  }
+    private readonly router: Router
+  ) { }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(!getToken()) {
       this.router.createUrlTree(['/auth/signin'])
     }
     return !!getToken();
-  }
+  };
 
 }

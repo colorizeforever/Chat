@@ -12,13 +12,13 @@ import { Errors } from '../../constants/errors';
 export class AuthService {
   constructor(
     @InjectModel(Authorization.name) private authModel: Model<AuthDocument>,
-    private jwtService: JwtService,
+    private readonly jwtService: JwtService,
   ) {}
 
   async login(authDto: AuthDto): Promise<TokenType> {
     const user = await this.validateUser(authDto);
     return this.generateToken(user);
-  }
+  };
 
   async registration(authDto: AuthDto): Promise<TokenType> {
     const candidate = await this.getUserByLogin(authDto.login);
@@ -31,18 +31,14 @@ export class AuthService {
       password: hashPass,
     }).save();
     return this.generateToken(user);
-  }
-
-  async updateUserImage(login: string | { [login: string]: any }, imageId) {
-    await this.authModel.findOneAndUpdate({login}, {$set: {imageId}})
-  }
+  };
 
   private async generateToken(user: Authorization): Promise<TokenType> {
     const payload = { login: user.login };
     return {
       token: this.jwtService.sign(payload),
     };
-  }
+  };
 
   private async validateUser(authDto: AuthDto): Promise<Authorization> {
     const user = await this.getUserByLogin(authDto.login);
@@ -58,9 +54,9 @@ export class AuthService {
       return user;
     }
     throw new Error(Errors.WRONG_PASS);
-  }
+  };
 
   private async getUserByLogin(login: string): Promise<Authorization> {
     return this.authModel.findOne({ login: login }).lean();
-  }
+  };
 }

@@ -14,7 +14,7 @@ export class RoomsComponent implements OnInit {
   rooms$: Observable<RoomModelI[]> = this.roomsService.rooms$;
 
   constructor(
-    private roomsService: RoomsService,
+    private readonly roomsService: RoomsService,
   ) { }
 
   ngOnInit(): void {
