@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ChatGuard} from "./guards/chat.guard";
+import { ChatGuard } from './guards/chat.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'auth/signin', pathMatch: 'full'},

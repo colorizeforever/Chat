@@ -6,10 +6,10 @@ import {
 import { Server, Socket } from 'socket.io';
 import { ChatService } from '../services/chat.service';
 import { config, socketPort } from '../websocket.options';
-import { JwtService } from "@nestjs/jwt";
-import {UnauthorizedException} from "@nestjs/common";
-import {SocketActions} from "../../../constants/socket.actions";
-import { MessageType } from "../../../typing/message.type";
+import { JwtService } from '@nestjs/jwt';
+import {UnauthorizedException} from '@nestjs/common';
+import {SocketActions} from '../../../constants/socket.actions';
+import { MessageType } from '../../../typing/message.type';
 
 @WebSocketGateway(socketPort, config)
 export class ChatGateway {

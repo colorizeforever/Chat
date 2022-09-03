@@ -1,4 +1,4 @@
-import {RoomModelI} from "../models/room.model";
+import { RoomModelI } from '../models/room.model';
 
 export const roomInitialVal: RoomModelI[] = [{
   room: '',

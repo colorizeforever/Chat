@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { UserDocument, UsersInRoom } from '../../../schemas/usersInRoom.schema';
 import { Model } from 'mongoose';
 import { Messages, MessagesDocument } from '../../../schemas/messages.schema';
-import {RoomDocument, Rooms} from "../../../schemas/rooms.schema";
+import { RoomDocument, Rooms } from '../../../schemas/rooms.schema';
 
 @Injectable()
 export class ChatService {

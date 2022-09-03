@@ -1,11 +1,9 @@
 import {
   Body,
-  Controller, Get,
-  HttpException, HttpStatus, Param,
-  Post, Res,
-  UnauthorizedException, UploadedFile,
-  UseFilters, UseInterceptors
-} from "@nestjs/common";
+  Controller,
+  Post,
+  UseFilters,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from '../../dto/create-user.dto';
 import { TokenType } from '../../typing/token.type';

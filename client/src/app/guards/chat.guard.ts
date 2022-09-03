@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import {
-  ActivatedRouteSnapshot,
-  CanActivate,
   CanLoad,
   Route,
   Router,
-  RouterStateSnapshot, UrlSegment,
+  UrlSegment,
   UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import {getToken} from "../utils/tokenHelper";
+import { getToken } from '../utils/tokenHelper';
 
 @Injectable({
   providedIn: 'root'
