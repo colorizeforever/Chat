@@ -14,13 +14,13 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 
 export class SignInComponent implements OnDestroy {
   private readonly unsubscribe$: Subject<void> = new Subject();
-  public login: string = '';
-  public password: string = '';
+  login: string = '';
+  password: string = '';
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private _snackBar: MatSnackBar
+    private readonly authService: AuthService,
+    private readonly router: Router,
+    private readonly _snackBar: MatSnackBar
   ) { }
 
   signIn(): void {

@@ -12,26 +12,26 @@ import {roomInitialVal} from "../../../../constants/room.initialvalue";
 })
 
 export class RoomsService {
-  private socket = io(`${environment.SOCKET_URL}`, formSocketOptions());
-  private roomState$: BehaviorSubject<RoomModelI[]> = new BehaviorSubject(roomInitialVal);
-  public rooms$: Observable<RoomModelI[]> = this.roomState$.asObservable()
+  private readonly socket = io(`${environment.SOCKET_URL}`, formSocketOptions());
+  private readonly roomState$: BehaviorSubject<RoomModelI[]> = new BehaviorSubject(roomInitialVal);
+  rooms$: Observable<RoomModelI[]> = this.roomState$.asObservable();
 
-  public activateSocket() {
+  activateSocket() {
     this.socket.emit(SocketActions.joined);
-    this.getAllRooms()
+    this.getAllRooms();
   }
 
-  public getAllRooms(): void {
+  getAllRooms(): void {
     this.socket.on(SocketActions.outputRooms, (allRooms: RoomModelI[]) => {
-        this.roomState$.next(allRooms)
-    })
-  }
+        this.roomState$.next(allRooms);
+    });
+  };
 
-  public createRoom(roomName: string): void {
-    this.socket.emit(SocketActions.createRoom, roomName)
+  createRoom(roomName: string): void {
+    this.socket.emit(SocketActions.createRoom, roomName);
     this.socket.off(SocketActions.room).on(SocketActions.room, (room: RoomModelI) => {
-      this.roomState$.next([...this.roomState$.value, {...room}])
-    })
-  }
+      this.roomState$.next([...this.roomState$.value, {...room}]);
+    });
+  };
 
 }

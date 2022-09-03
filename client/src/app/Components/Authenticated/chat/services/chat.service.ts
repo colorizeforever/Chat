@@ -12,30 +12,30 @@ import {chatInitialVal} from "../../../../constants/chat.initialvalue";
   providedIn: 'root'
 })
 export class ChatService {
-  private socket = io(`${environment.SOCKET_URL}`, formSocketOptions());
-  private messageState$: BehaviorSubject<MessagesModelI[]> = new BehaviorSubject(chatInitialVal);
-  public messages$ = this.messageState$.asObservable();
+  private readonly socket = io(`${environment.SOCKET_URL}`, formSocketOptions());
+  private readonly messageState$: BehaviorSubject<MessagesModelI[]> = new BehaviorSubject(chatInitialVal);
+  messages$ = this.messageState$.asObservable();
 
-  public setRoom(name: string, room: string): void {
+  setRoom(name: string, room: string): void {
     this.socket.emit(SocketActions.join, {name, room});
     this.getAllMessages();
   };
 
-  public sendMessage(message: string): void {
-    const avatarId = getAvatarId()
+  sendMessage(message: string): void {
+    const avatarId = getAvatarId();
     this.socket.emit(SocketActions.sendMsg, { message, avatarId });
     this.socket.off(SocketActions.message).on(SocketActions.message, (msg: MessagesModelI) => {
-      this.messageState$.next([...this.messageState$.value, {...msg}])
+      this.messageState$.next([...this.messageState$.value, {...msg}]);
     });
   };
 
-  public getAllMessages(): void {
+  getAllMessages(): void {
     this.socket.on(SocketActions.outputMsgs, (allMessages: MessagesModelI[]) => {
-      this.messageState$.next(allMessages)
-    })
+      this.messageState$.next(allMessages);
+    });
   };
 
-  public onDisconnect(): void {
+  onDisconnect(): void {
     this.socket.emit(SocketActions.disconnect);
     this.socket.off();
     destroyToken();

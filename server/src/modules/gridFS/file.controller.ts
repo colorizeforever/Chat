@@ -18,7 +18,7 @@ import { ChatService } from "../chat/services/chat.service";
 @Controller("/files")
 export class FileController {
   constructor(
-    private filesService: FileService,
+    private readonly filesService: FileService,
   ) { }
 
   @Post("avatar")

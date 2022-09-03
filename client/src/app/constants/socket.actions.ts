@@ -10,4 +10,4 @@ export enum SocketActions {
   joined = 'joined',
   userInRooms = 'roomData',
   room = 'room'
-}
+};

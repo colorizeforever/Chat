@@ -10,7 +10,7 @@ import {setLoginInStorage} from "../../../../utils/tokenHelper";
 })
 
 export class AuthService {
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient) {
   }
 
   login(login: string, password: string): Observable<Token> {

@@ -13,16 +13,16 @@ import { environment } from "../../../../../environments/environment";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatComponent implements OnInit, OnDestroy {
-  public messageList$: Observable<MessagesModelI[]> = this.chatService.messages$;
-  public message: string = '';
-  public username: string = '';
-  public avatarLink: string = environment.FILES_URL
+  messageList$: Observable<MessagesModelI[]> = this.chatService.messages$;
+  message: string = '';
+  username: string = '';
+  avatarLink: string = environment.FILES_URL
   constructor(
-    private chatService: ChatService,
-    private activateRoute: ActivatedRoute,
+    private readonly chatService: ChatService,
+    private readonly activateRoute: ActivatedRoute,
   ) { }
 
-  public sendMessage(): void {
+  sendMessage(): void {
     this.chatService.sendMessage(this.message);
     this.message = '';
   }

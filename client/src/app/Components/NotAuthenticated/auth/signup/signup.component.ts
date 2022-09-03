@@ -25,11 +25,11 @@ export class SignUpComponent {
   })
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private formBuilder: FormBuilder,
-    private fileService: FileService,
-    private _snackBar: MatSnackBar
+    private readonly authService: AuthService,
+    private readonly router: Router,
+    private readonly formBuilder: FormBuilder,
+    private readonly fileService: FileService,
+    private readonly _snackBar: MatSnackBar
   ) {
   }
 
