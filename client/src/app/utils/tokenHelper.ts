@@ -1,4 +1,4 @@
-import { storageAvatarKey, storageKey, storageLoginKey } from "../constants/storage.key";
+import { storageAvatarKey, storageKey, storageLoginKey } from '../constants/storage.key';
 
 export function getToken(): string {
   return localStorage.getItem(storageKey) || ''

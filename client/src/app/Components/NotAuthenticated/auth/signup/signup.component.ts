@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component} from "@angular/core";
-import {catchError, of, Subject, takeUntil} from "rxjs";
-import {AuthService} from "../services/auth.service";
-import {Router} from "@angular/router";
-import {setAvatarId, setToken} from "../../../../utils/tokenHelper";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {FileService} from "../../../../services/file.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { catchError, of, Subject, takeUntil } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { setAvatarId, setToken } from '../../../../utils/tokenHelper';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FileService } from '../services/file.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',

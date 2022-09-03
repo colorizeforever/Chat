@@ -1,12 +1,12 @@
-import {SubscribeMessage, WebSocketGateway, WebSocketServer} from '@nestjs/websockets';
-import {config, socketPort} from '../websocket.options';
-import {Server, Socket} from 'socket.io';
+import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import { config, socketPort } from '../websocket.options';
+import { Server, Socket } from 'socket.io';
 import { JwtService } from '@nestjs/jwt';
-import {RoomsService} from "../services/rooms.service";
-import {BadRequestException, UnauthorizedException, UseFilters} from "@nestjs/common";
-import {SocketActions} from "../../../constants/socket.actions";
-import {WsExceptionFilter} from "../../../exceptions/SocketExceptionFilter";
-import {ErrorThrower} from "../../../constants/errors";
+import { RoomsService } from '../services/rooms.service';
+import { UnauthorizedException, UseFilters } from '@nestjs/common';
+import { SocketActions } from '../../../constants/socket.actions';
+import { WsExceptionFilter } from '../../../exceptions/SocketExceptionFilter';
+import { ErrorThrower } from '../../../constants/errors';
 
 @WebSocketGateway(socketPort, config)
 export class ChatRoomsGateway {

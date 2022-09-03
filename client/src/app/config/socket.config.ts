@@ -1,4 +1,4 @@
-import {getToken} from "../utils/tokenHelper";
+import { getToken } from '../utils/tokenHelper';
 
 export const formSocketOptions = () => ({
   transportOptions: {

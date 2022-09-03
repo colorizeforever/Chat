@@ -1,15 +1,13 @@
-import {Injectable} from "@angular/core";
-import {environment} from "../../../../../environments/environment";
-import {io} from "socket.io-client";
-import {formSocketOptions} from "../../../../config/socket.config";
-import {SocketActions} from "../../../../constants/socket.actions";
-import {RoomModelI} from "../../../../models/room.model";
-import {BehaviorSubject, Observable} from "rxjs";
-import {roomInitialVal} from "../../../../constants/room.initialvalue";
+import { Injectable} from '@angular/core';
+import { environment} from '../../../../../environments/environment';
+import { io } from 'socket.io-client';
+import { formSocketOptions } from '../../../../config/socket.config';
+import { SocketActions } from '../../../../constants/socket.actions';
+import { RoomModelI } from '../../../../models/room.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { roomInitialVal } from '../../../../constants/room.initialvalue';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class RoomsService {
   private readonly socket = io(`${environment.SOCKET_URL}`, formSocketOptions());

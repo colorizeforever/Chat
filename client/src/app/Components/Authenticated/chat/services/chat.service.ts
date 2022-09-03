@@ -1,16 +1,14 @@
-import {Injectable} from '@angular/core';
-import {io} from "socket.io-client";
-import {environment} from "../../../../../environments/environment";
-import {MessagesModelI} from "../../../../models/chat.model";
-import {SocketActions} from "../../../../constants/socket.actions";
-import {formSocketOptions} from "../../../../config/socket.config";
-import { destroyToken, getAvatarId } from "../../../../utils/tokenHelper";
-import {BehaviorSubject} from "rxjs";
-import {chatInitialVal} from "../../../../constants/chat.initialvalue";
+import { Injectable} from '@angular/core';
+import { io} from 'socket.io-client';
+import { environment } from '../../../../../environments/environment';
+import { MessagesModelI } from '../../../../models/chat.model';
+import { SocketActions } from '../../../../constants/socket.actions';
+import { formSocketOptions } from '../../../../config/socket.config';
+import { destroyToken, getAvatarId } from '../../../../utils/tokenHelper';
+import { BehaviorSubject } from 'rxjs';
+import { chatInitialVal } from '../../../../constants/chat.initialvalue';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ChatService {
   private readonly socket = io(`${environment.SOCKET_URL}`, formSocketOptions());
   private readonly messageState$: BehaviorSubject<MessagesModelI[]> = new BehaviorSubject(chatInitialVal);

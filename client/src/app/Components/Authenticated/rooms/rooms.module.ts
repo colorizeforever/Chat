@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomsComponent } from './component/rooms.component';
-import {RoomsRoutingModule} from "./rooms-routing.module";
-import {FormsModule} from "@angular/forms";
-import {MatButtonModule} from "@angular/material/button";
-import {SharedModule} from "../../../shared/shared.module";
+import { RoomsRoutingModule } from './rooms-routing.module';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../../shared/shared.module';
+import { RoomsService } from './services/rooms.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import {SharedModule} from "../../../shared/shared.module";
     CommonModule,
     FormsModule,
     RoomsRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
+  providers: [RoomsService],
 })
 export class RoomsModule { }

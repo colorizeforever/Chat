@@ -1,4 +1,4 @@
-import {MessagesModelI} from "../models/chat.model";
+import { MessagesModelI } from '../models/chat.model';
 
 export const chatInitialVal: MessagesModelI[] = [{
   user: '',

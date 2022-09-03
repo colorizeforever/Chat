@@ -1,14 +1,14 @@
-import { Module } from "@nestjs/common";
-import { ChatService } from "./services/chat.service";
-import { MongooseModule } from "@nestjs/mongoose";
-import { UsersInRoom, UsersInRoomSchema } from "../../schemas/usersInRoom.schema";
-import { Messages, MessagesSchema } from "../../schemas/messages.schema";
-import { ChatGateway } from "./gateway/chat.gateway";
-import { JwtModule } from "@nestjs/jwt";
-import { RoomsService } from "./services/rooms.service";
-import { Rooms, RoomsSchema } from "../../schemas/rooms.schema";
-import { ChatRoomsGateway } from "./gateway/chatRooms.gateway";
-import { jwtConfig } from "../../config/configuration";
+import { Module } from '@nestjs/common';
+import { ChatService } from './services/chat.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { UsersInRoom, UsersInRoomSchema } from '../../schemas/usersInRoom.schema';
+import { Messages, MessagesSchema } from '../../schemas/messages.schema';
+import { ChatGateway } from './gateway/chat.gateway';
+import { JwtModule } from '@nestjs/jwt';
+import { RoomsService } from './services/rooms.service';
+import { Rooms, RoomsSchema } from '../../schemas/rooms.schema';
+import { ChatRoomsGateway } from './gateway/chatRooms.gateway';
+import { jwtConfig } from '../../config/configuration';
 
 @Module({
   providers: [
