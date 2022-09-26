@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, } from '@angular/core';
-import { ChatService } from '../services/chat.service';
+import { ChatService } from '../chat.service';
 import { Observable } from 'rxjs';
-import { MessagesModelI } from '../../../../models/chat.model';
+import { MessagesModelI } from '../../../../shared/models/chat.model';
 import { getLoginFromStorage } from '../../../../utils/tokenHelper';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../../environments/environment';

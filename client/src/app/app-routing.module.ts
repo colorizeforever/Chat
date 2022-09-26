@@ -6,16 +6,16 @@ const routes: Routes = [
   {path: '', redirectTo: 'auth/signin', pathMatch: 'full'},
   {
     path: 'auth',
-    loadChildren: () => import('./Components/NotAuthenticated/auth/auth.module').then((m) => m.AuthModule)},
+    loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule)},
   {
     path: 'chat/:room',
     canLoad: [ChatGuard],
-    loadChildren: () => import('./Components/Authenticated/chat/chat.module').then((m) => m.ChatModule),
+    loadChildren: () => import('./modules/chat/chat.module').then((m) => m.ChatModule),
   },
   {
     path: 'rooms',
     canLoad: [ChatGuard],
-    loadChildren: () => import('./Components/Authenticated/rooms/rooms.module').then((m) => m.RoomsModule),
+    loadChildren: () => import('./modules/rooms/rooms.module').then((m) => m.RoomsModule),
   }
 ];
 

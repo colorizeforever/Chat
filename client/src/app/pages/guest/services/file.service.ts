@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../../environments/environment';
-import { getToken } from '../../../../utils/tokenHelper';
-import { FileResponseModelI } from '../../../../models/file.model';
+import { environment } from '../../../../environments/environment';
+import { getToken } from '../../../utils/tokenHelper';
+import { FileResponseModelI } from '../../../shared/models/file.model';
 
 @Injectable()
 export class FileService {

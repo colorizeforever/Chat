@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Token } from '../../../../models/token.model';
-import { environment } from '../../../../../environments/environment';
-import { setLoginInStorage } from '../../../../utils/tokenHelper';
+import { Token } from '../../../shared/models/token.model';
+import { environment } from '../../../../environments/environment';
+import { setLoginInStorage } from '../../../utils/tokenHelper';
 
 @Injectable()
 

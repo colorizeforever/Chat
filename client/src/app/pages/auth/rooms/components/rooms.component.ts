@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RoomsService } from '../services/rooms.service';
+import { RoomsService } from '../rooms.service';
 import { Observable } from 'rxjs';
-import { RoomModelI } from '../../../../models/room.model';
+import { RoomModelI } from '../../../../shared/models/room.model';
 
 @Component({
   selector: 'app-rooms',

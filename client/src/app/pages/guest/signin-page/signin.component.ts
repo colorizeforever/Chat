@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { setToken } from '../../../../utils/tokenHelper';
+import { setToken } from '../../../utils/tokenHelper';
 import { Router } from '@angular/router';
 import { catchError, of, Subject, takeUntil } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';

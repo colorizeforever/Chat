@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignInComponent } from './signin/signin.component';
-import { AuthRoutingModule } from './auth-routing.module';
+import { SignInComponent } from '../../pages/guest/signin-page/signin.component';
+import { AuthRoutingModule } from '../../pages/guest/auth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignUpComponent } from './signup/signup.component';
-import { SharedModule } from '../../../shared/shared.module';
-import { FileService } from './services/file.service';
-import { AuthService } from './services/auth.service';
+import { SignUpComponent } from '../../pages/guest/signup-page/signup.component';
+import { SharedModule } from '../../shared/shared.module';
+import { FileService } from '../../pages/guest/services/file.service';
+import { AuthService } from '../../pages/guest/services/auth.service';
 
 @NgModule({
   declarations: [
