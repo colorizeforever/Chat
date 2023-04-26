@@ -1,18 +1,16 @@
-
-
-<div class="room" *ngFor="let room of (rooms$ | async)">
-    <div class="room__name">
+<div class='room' *ngFor='let room of (rooms$ | async)'>
+  <div class='room__name'>
       <span
-      [routerLink]="['/chat/' + room.room]"
+        [routerLink]="['/chat/' + room.room]"
       >Room: {{room.room}}
       </span>
-    </div>
-    <div class="message">
-      <span>{{room.user}}: {{room.lastMessage}}</span>
-    </div>
+  </div>
+  <div class='message'>
+    <span>{{room.user}}: {{room.lastMessage}}</span>
+  </div>
 </div>
 
 
-<input type="text" [(ngModel)]="room">
-<button (click)="createRoom()" mat-button color="primary">Create new room</button>
+<input type='text' [(ngModel)]='room'>
+<button (click)='createRoom()' mat-button color='primary'>Create new room</button>
 

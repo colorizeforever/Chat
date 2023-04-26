@@ -1,4 +1,5 @@
 @use "colors";
+
 .room__name {
   width: 90%;
 }
@@ -23,6 +24,7 @@
   justify-content: center;
   border: 1px solid colors.$black;
   border-radius: 5px;
+
   span {
     width: 90%;
   }

@@ -1,5 +1,5 @@
-import { Injectable} from '@angular/core';
-import { io} from 'socket.io-client';
+import { Injectable } from '@angular/core';
+import { io } from 'socket.io-client';
 import { environment } from '../../../../environments/environment';
 import { MessagesModelI } from '../../../shared/models/chat.model';
 import { SocketActions } from '../../../constants/socket.actions';
@@ -15,28 +15,28 @@ export class ChatService {
   messages$ = this.messageState$.asObservable();
 
   setRoom(name: string, room: string): void {
-    this.socket.emit(SocketActions.join, {name, room});
+    this.socket.emit(SocketActions.join, { name, room });
     this.getAllMessages();
-  };
+  }
 
   sendMessage(message: string): void {
     const avatarId = getAvatarId();
     this.socket.emit(SocketActions.sendMsg, { message, avatarId });
     this.socket.off(SocketActions.message).on(SocketActions.message, (msg: MessagesModelI) => {
-      this.messageState$.next([...this.messageState$.value, {...msg}]);
+      this.messageState$.next([...this.messageState$.value, { ...msg }]);
     });
-  };
+  }
 
   getAllMessages(): void {
     this.socket.on(SocketActions.outputMsgs, (allMessages: MessagesModelI[]) => {
       this.messageState$.next(allMessages);
     });
-  };
+  }
 
   onDisconnect(): void {
     this.socket.emit(SocketActions.disconnect);
     this.socket.off();
     destroyToken();
-  };
+  }
 
 }

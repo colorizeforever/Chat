@@ -4,5 +4,5 @@ export const chatInitialVal: MessagesModelI[] = [{
   user: '',
   text: '',
   room: '',
-  imageId: '',
+  imageId: ''
 }];

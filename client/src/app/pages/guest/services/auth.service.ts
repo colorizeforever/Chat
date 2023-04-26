@@ -8,21 +8,22 @@ import { setLoginInStorage } from '../../../utils/tokenHelper';
 @Injectable()
 
 export class AuthService {
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {
+  }
 
   login(login: string, password: string): Observable<Token> {
-    setLoginInStorage(login)
+    setLoginInStorage(login);
     return this.http.post<Token>(`${environment.API_URL}/auth/login`, {
       login, password
     });
-  };
+  }
 
   registration(login: string, password: string): Observable<Token> {
-    setLoginInStorage(login)
+    setLoginInStorage(login);
     return this.http.post<Token>(`${environment.API_URL}/auth/registration`, {
       login, password
-    })
-  };
+    });
+  }
 }
 
 

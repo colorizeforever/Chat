@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { setToken } from '../../../utils/tokenHelper';
 import { Router } from '@angular/router';
 import { catchError, of, Subject, takeUntil } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {FormGroup} from "@angular/forms";
-import {IAuth, IAuthForm} from "../auth-form.model";
-import {authFormConstant} from "../auth-form.constant";
+import { FormGroup } from '@angular/forms';
+import { IAuth, IAuthForm } from '../auth-form.model';
+import { authFormConstant } from '../auth-form.constant';
 
 @Component({
   selector: 'app-auth',
@@ -25,22 +25,23 @@ export class SignInComponent implements OnDestroy {
     private readonly authService: AuthService,
     private readonly router: Router,
     private readonly _snackBar: MatSnackBar
-  ) { }
+  ) {
+  }
 
   signIn(): void {
-    const { login, password } = this.authFormGroup.value as IAuth
+    const { login, password } = this.authFormGroup.value as IAuth;
     this.authService.login(login, password)
       .pipe(
         takeUntil(this.unsubscribe$),
         catchError(err => {
-          return of(err)
+          return of(err);
         })
       )
       .subscribe(token => {
         token.error
           ? this._snackBar.open(token.error.message, 'Ok')
-          : this.redirect(token)
-      })
+          : this.redirect(token);
+      });
   }
 
   private redirect(token: string): void {
@@ -49,8 +50,8 @@ export class SignInComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.unsubscribe$.next()
-    this.unsubscribe$.complete()
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ChatComponent } from '../../pages/auth/chat/components/chat.component';
 import { FormsModule } from '@angular/forms';
 import { ChatRoutingModule } from '../../pages/auth/chat/chat-routing.module';
-import { SharedModule} from '../../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { ChatService } from '../../pages/auth/chat/chat.service';
 
 @NgModule({
@@ -16,6 +16,7 @@ import { ChatService } from '../../pages/auth/chat/chat.service';
     ChatRoutingModule,
     SharedModule
   ],
-  providers: [ChatService],
+  providers: [ChatService]
 })
-export class ChatModule { }
+export class ChatModule {
+}

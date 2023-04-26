@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {DomSanitizer} from "@angular/platform-browser";
-import {MatIconRegistry} from "@angular/material/icon";
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import {MatIconRegistry} from "@angular/material/icon";
 export class AppComponent {
   constructor(
     private readonly _matIconRegistry: MatIconRegistry,
-    private readonly _domSanitizer: DomSanitizer,) {
+    private readonly _domSanitizer: DomSanitizer) {
 
     this._matIconRegistry.addSvgIconResolver((icon, namespace) => {
       return this._domSanitizer.bypassSecurityTrustResourceUrl(

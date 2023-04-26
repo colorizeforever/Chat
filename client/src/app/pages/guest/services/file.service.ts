@@ -7,14 +7,15 @@ import { FileResponseModelI } from '../../../shared/models/file.model';
 
 @Injectable()
 export class FileService {
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {
+  }
 
   setUserProfile(image: FormData): Observable<FileResponseModelI> {
-    const headers= new HttpHeaders()
+    const headers = new HttpHeaders()
       .set('Authorization', JSON.parse(getToken()).token)
       .set('Access-Control-Allow-Origin', '*');
 
-    return this.http.post<FileResponseModelI>(`${environment.API_URL}/files/avatar`, image, {headers: headers});
-  };
+    return this.http.post<FileResponseModelI>(`${environment.API_URL}/files/avatar`, image, { headers: headers });
+  }
 
 }

@@ -1,30 +1,30 @@
-<div class="form">
+<div class='form'>
   <mat-stepper #stepper>
-    <mat-step [stepControl]="authFormGroup">
-      <form [formGroup]="authFormGroup">
+    <mat-step [stepControl]='authFormGroup'>
+      <form [formGroup]='authFormGroup'>
         <ng-template matStepLabel>Enter you login</ng-template>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance='fill'>
           <mat-label>Login</mat-label>
-          <input matInput placeholder="Login" formControlName="login" required>
+          <input matInput placeholder='Login' formControlName='login' required>
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance='fill'>
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" formControlName="password" required>
+          <input matInput placeholder='Password' formControlName='password' required>
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext (click)="signUp()">Next</button>
+          <button mat-button matStepperNext (click)='signUp()'>Next</button>
         </div>
       </form>
     </mat-step>
-    <mat-step label="Upload your avatar">
+    <mat-step label='Upload your avatar'>
       <mat-label>Avatar</mat-label>
       <br>
-      <label for="file">Choose avatar</label>
-      <input (change)="onFileSelected($event)" class="inputfile" type="file" id="file">
+      <label for='file'>Choose avatar</label>
+      <input (change)='onFileSelected($event)' class='inputfile' type='file' id='file'>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext (click)="onUpload()">Next</button>
+        <button mat-button matStepperNext (click)='onUpload()'>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -32,12 +32,13 @@
       <p>You are now done.</p>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)='stepper.reset()'>Reset</button>
       </div>
     </mat-step>
   </mat-stepper>
   <button
     mat-button
-    routerLink="/auth/signin"
-  >SignUp</button>
+    routerLink='/auth/signin'
+  >SignUp
+  </button>
 </div>

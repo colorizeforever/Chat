@@ -9,7 +9,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
-    SafeUrlPipe,
+    SafeUrlPipe
   ],
   imports: [
     CommonModule,
@@ -17,7 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatSnackBarModule,
+    MatSnackBarModule
   ],
   exports: [
     SafeUrlPipe,
@@ -26,7 +26,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatInputModule,
     MatButtonModule,
-    MatSnackBarModule,
+    MatSnackBarModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

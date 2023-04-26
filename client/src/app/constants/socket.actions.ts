@@ -1,5 +1,5 @@
 export enum SocketActions {
-  message= 'message',
+  message = 'message',
   join = 'join',
   sendMsg = 'sendMessage',
   outputMsgs = 'output-messages',
@@ -10,4 +10,4 @@ export enum SocketActions {
   joined = 'joined',
   userInRooms = 'roomData',
   room = 'room'
-};
+}

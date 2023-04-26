@@ -14,8 +14,9 @@ import { RoomsService } from '../../pages/auth/rooms/rooms.service';
     CommonModule,
     FormsModule,
     RoomsRoutingModule,
-    SharedModule,
+    SharedModule
   ],
-  providers: [RoomsService],
+  providers: [RoomsService]
 })
-export class RoomsModule { }
+export class RoomsModule {
+}

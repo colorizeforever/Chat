@@ -1,29 +1,29 @@
 import { storageAvatarKey, storageKey, storageLoginKey } from '../constants/storage.key';
 
 export function getToken(): string {
-  return localStorage.getItem(storageKey) || ''
+  return localStorage.getItem(storageKey) || '';
 }
 
 export function destroyToken(): void {
-  localStorage.removeItem(storageKey)
+  localStorage.removeItem(storageKey);
 }
 
 export function setToken(token: string): void {
-  localStorage.setItem(storageKey, token)
+  localStorage.setItem(storageKey, token);
 }
 
 export function setLoginInStorage(login: string): void {
-  localStorage.setItem(storageLoginKey, login)
+  localStorage.setItem(storageLoginKey, login);
 }
 
 export function getLoginFromStorage(): string {
-  return localStorage.getItem(storageLoginKey) || ''
+  return localStorage.getItem(storageLoginKey) || '';
 }
 
 export function setAvatarId(id: string): void {
-  localStorage.setItem(storageAvatarKey, id)
+  localStorage.setItem(storageAvatarKey, id);
 }
 
 export function getAvatarId(): string {
-  return localStorage.getItem(storageAvatarKey) || ''
+  return localStorage.getItem(storageAvatarKey) || '';
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { Observable } from 'rxjs';
 import { MessagesModelI } from '../../../../shared/models/chat.model';
@@ -14,13 +14,15 @@ import { environment } from '../../../../../environments/environment';
 })
 export class ChatComponent implements OnInit, OnDestroy {
   messageList$: Observable<MessagesModelI[]> = this.chatService.messages$;
-  message: string = '';
-  username: string = '';
-  avatarLink: string = environment.FILES_URL
+  message = '';
+  username = '';
+  avatarLink = environment.FILES_URL;
+
   constructor(
     private readonly chatService: ChatService,
-    private readonly activateRoute: ActivatedRoute,
-  ) { }
+    private readonly activateRoute: ActivatedRoute
+  ) {
+  }
 
   sendMessage(): void {
     this.chatService.sendMessage(this.message);
@@ -28,8 +30,8 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-     this.chatService.setRoom(getLoginFromStorage(), this.activateRoute.snapshot.params['room'])
-     this.username = getLoginFromStorage();
+    this.chatService.setRoom(getLoginFromStorage(), this.activateRoute.snapshot.params['room']);
+    this.username = getLoginFromStorage();
   }
 
   ngOnDestroy(): void {

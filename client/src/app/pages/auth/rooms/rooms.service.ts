@@ -1,5 +1,5 @@
-import { Injectable} from '@angular/core';
-import { environment} from '../../../../environments/environment';
+import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 import { io } from 'socket.io-client';
 import { formSocketOptions } from '../../../config/socket.config';
 import { SocketActions } from '../../../constants/socket.actions';
@@ -20,15 +20,15 @@ export class RoomsService {
 
   getAllRooms(): void {
     this.socket.on(SocketActions.outputRooms, (allRooms: RoomModelI[]) => {
-        this.roomState$.next(allRooms);
+      this.roomState$.next(allRooms);
     });
-  };
+  }
 
   createRoom(roomName: string): void {
     this.socket.emit(SocketActions.createRoom, roomName);
     this.socket.off(SocketActions.room).on(SocketActions.room, (room: RoomModelI) => {
-      this.roomState$.next([...this.roomState$.value, {...room}]);
+      this.roomState$.next([...this.roomState$.value, { ...room }]);
     });
-  };
+  }
 
 }

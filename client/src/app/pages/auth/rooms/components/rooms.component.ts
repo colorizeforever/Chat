@@ -10,12 +10,13 @@ import { RoomModelI } from '../../../../shared/models/room.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoomsComponent implements OnInit {
-  room: string = ''
+  room = '';
   rooms$: Observable<RoomModelI[]> = this.roomsService.rooms$;
 
   constructor(
-    private readonly roomsService: RoomsService,
-  ) { }
+    private readonly roomsService: RoomsService
+  ) {
+  }
 
   ngOnInit(): void {
     this.roomsService.activateSocket();

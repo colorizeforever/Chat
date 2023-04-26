@@ -1,6 +1,6 @@
 export interface MessagesModelI {
-  user: string,
-  text: string,
-  room: string,
-  imageId: string
+  user: string;
+  text: string;
+  room: string;
+  imageId: string;
 }

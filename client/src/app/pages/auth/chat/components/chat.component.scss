@@ -1,5 +1,5 @@
+@use "colors";
 @import "src/styles";
-@import "../../../../../styles/colors";
 
 .messages::-webkit-scrollbar {
   width: 10px;
@@ -24,13 +24,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   .messages {
-    border: 1px solid $light-grey;
+    border: 1px solid colors.$light-grey;
     border-radius: 5px;
     width: 1100px;
     height: 600px;
     overflow-y: scroll;
-    background-color: $darkgrey;
+    background-color: colors.$darkgrey;
 
     .message {
       position: relative;
@@ -39,8 +40,8 @@
       height: 44px;
       display: flex;
       flex-direction: column;
-      background-color: $white-1;
-      color: $black;
+      background-color: colors.$white-1;
+      color: colors.$black;
       border-radius: 14px 0 14px 14px;
 
       img {
@@ -53,9 +54,9 @@
       }
 
       &.mine {
-        background-color: $blue;
+        background-color: colors.$blue;
         margin-left: 62%;
-        color: $white;
+        color: colors.$white;
       }
 
       span {
@@ -75,8 +76,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     input {
-      background-color: $dark-white;
+      background-color: colors.$dark-white;
       border: none;
       padding: 10px;
       width: 200px;
@@ -94,15 +96,16 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background-color: $blue;
+      background-color: colors.$blue;
       cursor: pointer;
       border: none;
+
       .fa-paper-plane {
-        color: $white;
+        color: colors.$white;
       }
 
       &[disabled] {
-        background-color: $light-grey;
+        background-color: colors.$light-grey;
       }
     }
 

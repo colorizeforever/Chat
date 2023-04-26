@@ -8,7 +8,7 @@ import { SignUpComponent } from '../../pages/guest/signup-page/signup.component'
 import { SharedModule } from '../../shared/shared.module';
 import { FileService } from '../../pages/guest/services/file.service';
 import { AuthService } from '../../pages/guest/services/auth.service';
-import {MatIconModule} from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -22,11 +22,12 @@ import {MatIconModule} from "@angular/material/icon";
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
-    MatIconModule,
+    MatIconModule
   ],
   providers: [
     FileService,
-    AuthService,
+    AuthService
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+}
