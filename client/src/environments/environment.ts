@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  SOCKET_URL: 'http://localhost:5000',
+  SOCKET_URL: 'http://localhost:7789',
   API_URL: 'http://localhost:3000',
   FILES_URL: 'http://localhost:3000/files/avatar/'
 };

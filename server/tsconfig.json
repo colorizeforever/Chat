@@ -3,6 +3,21 @@
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
+    "paths": {
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ]
+    },
+
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,

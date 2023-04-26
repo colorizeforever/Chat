@@ -1,71 +1,244 @@
-@import "src/styles";
-@import "src/scss/colors";
+@use "colors";
+@use "urls";
 
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-
-label {
-  font-size: 1.25em;
+h1 {
+  font-size: 2.5em;
+  color: colors.$text-headline;
   font-weight: 700;
-  color: $white;
-  text-align: center;
-  vertical-align: center;
-  background-color: $blue;
-  display: inline-block;
-  width: 200px;
-  height: 30px;
+  margin: 0;
 }
 
-.form {
-  width: 505px;
+p {
+  line-height: 180%;
+}
+
+.sign__wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.mat-stepper-horizontal {
-  border: 1px solid $black;
-  border-radius: 6px;
-}
-
-.sign__form {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .form__container {
-    width: 400px;
-    height: 300px;
+  min-height: 60em;
+  border-radius: 20px;
+  background-color: colors.$bg-box;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.025);
+
+
+  &-quote, &-auth {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border: 2px solid $light-blue;
-    border-radius: 4px;
-    input, button {
-      width: 70%;
-      height: 12%;
-    }
-    button {
-      background-color: $blue;
-      border: none;
-      border-radius: 6px;
-      color: $white;
-      &[disabled] {
-        background-color: $light-grey;
+    justify-content: center;
+    flex: 1 1 100%;
+    //   width: 100%;
+    padding: 4em 6em;
+  }
+
+
+  &-quote {
+    color: white;
+    background-color: colors.$bg-quote;
+    background-image: urls.$sign_bg,
+    colors.$dark-blue-gradient;
+    background-size: 125%;
+    background-repeat: no-repeat;
+    background-position: center left;
+
+    .quote__wrap {
+      padding: 1em 0;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -4.5em;
+        left: -0.65em;
+        width: 3.5em;
+        height: 3.5em;
+        background-color: colors.$accent;
+        border-radius: 100%;
       }
-      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 15px;
+        height: 100%;
+        width: 2px;
+        background-color: rgba(colors.$bg-box, 0.25);
+      }
+
+      .quote {
+        color: colors.$bg-box;
+        font-size: 7em;
+        font-weight: 600;
+        line-height: 1;
+      }
+
+      .quote-small {
+        color: colors.$bg-main;
+        line-height: 180%;
+        padding: 2em 0 0 6em;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 2.75em;
+          left: 1.2em;
+          width: 3em;
+          height: 2px;
+          background-color: rgba(colors.$bg-box, 0.25);
+        }
+      }
     }
-    input {
-      border: 1px solid $black;
-      border-radius: 3px;
+  }
+
+  .auth {
+    &__tip {
+      span {
+        color: colors.$text-link;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+          color: colors.$bg-quote-hover;
+        }
+      }
     }
+
+    &__form {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      flex-grow: 1;
+
+      & > * {
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      form {
+        & > div {
+          position: relative;
+          padding: 1.5em 0;
+
+          button[disabled] {
+            background-color: colors.$text-main;
+            border: 1px solid colors.$text-main;
+          }
+          //TODO: move to UI kit
+          input, button {
+            color: colors.$text-main;
+            width: 100%;
+            padding: 1.5em 2em;
+            border: 1px solid colors.$text-main;
+            border-radius: 5px;
+
+            &.input-email,
+            &.input-password {
+              background-repeat: no-repeat;
+              background-position: right 1em top 1.25em;
+            }
+
+            &.input-email {
+              background-image: urls.$sign_email;
+            }
+
+            &.input-password {
+              background-image: urls.$sign_pass;
+            }
+
+            &:focus {
+              outline-color: colors.$bg-quote;
+              border-color: colors.$bg-quote;
+            }
+          }
+
+          label {
+            font-size: 0.85em;
+            position: absolute;
+            top: 1.25em;
+            left: 1.5em;
+            background: colors.$bg-box;
+            padding: 0 0.5em;
+          }
+
+          &:focus-within label {
+            color: colors.$bg-quote;
+            font-weight: 600;
+          }
+
+          .btn {
+            color: colors.$bg-box;
+            font-size: 1em;
+            letter-spacing: 1px;
+            line-height: 1;
+            background-color: colors.$bg-quote;
+            border-color: colors.$bg-quote;
+            cursor: pointer;
+            transition: all 500ms ease;
+          }
+        }
+      }
+
+      .oauth {
+        &__text {
+          display: flex;
+          align-items: center;
+          margin: 1.5em 0;
+          text-align: center;
+
+          &::before,
+          &::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid colors.$text-main;
+          }
+
+          &::before {
+            margin-right: 1em;
+          }
+
+          &::after {
+            margin-left: 1em;
+          }
+        }
+
+        &__items {
+          display: flex;
+          justify-content: space-between;
+          gap: 1em;
+          margin-top: 1.5em;
+
+          &-item {
+            color: colors.$text-headline;
+            text-align: center;
+            width: 100%;
+            padding: 1em 1em;
+            border: 1px solid rgba(colors.$text-main, 0.5);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 500ms ease;
+
+            svg {
+              transition: transform 500ms ease;
+            }
+
+            &:hover {
+              border-color: colors.$text-main;
+              background-color: rgba(colors.$text-main, 0.25);
+
+              svg {
+                transform: scale(1.25);
+              }
+            }
+          }
+        }
+      }
+
+
+    }
+
   }
 }

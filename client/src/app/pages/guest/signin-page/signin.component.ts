@@ -4,18 +4,22 @@ import { setToken } from '../../../utils/tokenHelper';
 import { Router } from '@angular/router';
 import { catchError, of, Subject, takeUntil } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {FormGroup} from "@angular/forms";
+import {IAuth, IAuthForm} from "../auth-form.model";
+import {authFormConstant} from "../auth-form.constant";
 
 @Component({
   selector: 'app-auth',
   templateUrl: './signin.component.html',
+  host: { class: 'fl-mid-wrapper' },
   styleUrls: ['../style/signin.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SignInComponent implements OnDestroy {
   private readonly unsubscribe$: Subject<void> = new Subject();
-  login: string = '';
-  password: string = '';
+
+  authFormGroup: FormGroup<IAuthForm> = authFormConstant;
 
   constructor(
     private readonly authService: AuthService,
@@ -24,7 +28,8 @@ export class SignInComponent implements OnDestroy {
   ) { }
 
   signIn(): void {
-    this.authService.login(this.login, this.password)
+    const { login, password } = this.authFormGroup.value as IAuth
+    this.authService.login(login, password)
       .pipe(
         takeUntil(this.unsubscribe$),
         catchError(err => {

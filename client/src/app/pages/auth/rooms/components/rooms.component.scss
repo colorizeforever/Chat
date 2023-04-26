@@ -1,15 +1,13 @@
-@import "src/styles";
-@import "src/scss/colors";
-
+@use "colors";
 .room__name {
   width: 90%;
 }
 
 .room {
-  background-color: $blue;
+  background-color: colors.$blue;
   border-radius: 14px 14px 14px 14px;
   width: 300px;
-  color: $white;
+  color: colors.$white;
   height: 68px;
   margin-bottom: 10px;
   display: flex;
@@ -23,7 +21,7 @@
   width: 90%;
   display: flex;
   justify-content: center;
-  border: 1px solid $black;
+  border: 1px solid colors.$black;
   border-radius: 5px;
   span {
     width: 90%;
